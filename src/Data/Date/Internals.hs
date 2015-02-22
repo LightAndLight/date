@@ -26,7 +26,7 @@ mkDate :: Integer -- ^ year
        -> Maybe Date
 mkDate y m d = 
     if validDate y m d
-        then Just $ Date { year = y, month = m, day = d} 
+        then Just Date { year = y, month = m, day = d} 
         else Nothing
 
 -- | Computes the absolute number of days between two Date objects.
@@ -56,15 +56,11 @@ daysInMonth m ly = case m of
     12 -> 31
 
 isLeapYear :: Integer -> Bool
-isLeapYear y = 
-    if div400
-        then True
-        else if div100
-            then False
-            else if div4
-                then True
-                else False
-
+isLeapYear y
+    | div400 = True
+    | div100 = False
+    | div4 = True
+    | otherwise = False
     where div4 = y `divides` 4
           div100 = y `divides` 100
           div400 = y `divides` 400

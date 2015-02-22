@@ -61,12 +61,11 @@ identifier = do
 escaped :: Parser Char
 escaped = do
     char '\\'
-    next <- oneOf "%\\"
-    return next
+    oneOf "%\\"
 
 literal :: Parser Token
 literal = do
-    str <- many1 $ (escaped <|> noneOf "\\%")
+    str <- many1 $ escaped <|> noneOf "\\%"
     return $ Literal str
 
 token :: Parser Token
