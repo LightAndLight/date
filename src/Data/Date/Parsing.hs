@@ -5,9 +5,11 @@ import Data.Date.Internals
 import Text.Parsec hiding (token,tokens)
 import Text.Parsec.String
 
--- | showDate takes a format string and a Date object
+-- | Takes a format string and a Date object
+--
 -- The format string can contain the following substitution
 -- identifiers:
+--
 --      * %d - day number
 --      * %D - day name
 --      * %o - ordinal day number
@@ -17,11 +19,11 @@ import Text.Parsec.String
 --      * %Y - full year
 --
 -- To write literal charaters '%' and '\\', escape them double 
--- backslashes ("\\%" and "\\\\")
+-- backslashes ('\\%' and '\\\\')
 --
 -- All other symbols will carry over as is
 --
--- Usage example:
+-- Example:
 --
 -- >>> showDate "%D, %o of %M, %Y" $ Date { year = 2015, month = 2, day = 22 }
 -- Right "Sunday, 22nd of February, 2015"

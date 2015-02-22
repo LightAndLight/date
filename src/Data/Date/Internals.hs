@@ -14,12 +14,12 @@ import Data.Time (diffDays,fromGregorian,toGregorian)
 import Data.Time.Calendar.WeekDate (toWeekDate)
 
 data Date = Date { 
-    year :: Integer -- ^ get the year from a Date object
-    , month :: Int  -- ^ get the month from a Date object
-    , day :: Int    -- ^ get the day from a Date object
+    year :: Integer -- ^ Get the year from a Date object
+    , month :: Int  -- ^ Get the month from a Date object
+    , day :: Int    -- ^ Get the day from a Date object
 } deriving (Show, Eq, Ord)
 
--- | mkDate returns a date if the supplied month and day are valid.
+-- | Returns a date if the supplied month and day are valid.
 mkDate :: Integer -- ^ year
        -> Int     -- ^ month
        -> Int     -- ^ day
@@ -29,7 +29,7 @@ mkDate y m d =
         then Just $ Date { year = y, month = m, day = d} 
         else Nothing
 
--- | difference computes the absolute number of days between two Date objects.
+-- | Computes the absolute number of days between two Date objects.
 difference :: Date -> Date -> Integer
 difference d1 d2 = abs $ diffDays d1' d2'
     where d1' = fromGregorian (year d1) (month d1) (day d1)
