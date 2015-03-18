@@ -4,6 +4,7 @@ module Data.Date(
     , month
     , year
     , mkDate
+    , readDate
     , showDate
     , difference
 ) where
